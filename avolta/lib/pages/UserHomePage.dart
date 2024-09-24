@@ -18,70 +18,227 @@ class _UserhomepageState extends State<Userhomepage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: 180,
-              decoration: BoxDecoration(
-                color: Color(0xFFB9A1D6),
-                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40)),
-              ),
-              child: Padding(
-                padding: EdgeInsets.only(top: 30, left: 20, right: 20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Hi",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text("Dasun",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold)),
-                            ],
-                          ),
-                        ),
-                        ClipOval(
-                          child: Image.asset(
-                            "images/user.png",
-                            fit: BoxFit.cover,
-                            height: 70,
-                            width: 70,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 25),
-                    Text(
-                      "Your Shift Schedule",
-                      style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
+            Stack(
+              children: [
+                Image.asset(
+                  "images/reqtangle.png",
+                  fit: BoxFit.fitWidth,
+                  width: double.infinity,
                 ),
-              ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 1, top: 85),
+                    child: Container(
+                      height: 300,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("images/he.png"))),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 60, left: 10),
+                  child: Row(
+                    children: [
+                      ClipOval(
+                        child: Image.asset(
+                          "images/user.png",
+                          fit: BoxFit.cover,
+                          height: 70,
+                          width: 70,
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Good Morning!",
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          Text("Kasun Dilmina",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold)),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 190, left: 20),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Your Shift",
+                        style: TextStyle(
+                            fontSize: 36,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "Schedule",
+                        style: TextStyle(
+                            fontSize: 36,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 350),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 60),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Material(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Container(
+                                height: 171,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFEBD9F0),
+                                  borderRadius: BorderRadius.circular(20),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.2),
+                                      spreadRadius: 2,
+                                      blurRadius: 5,
+                                      offset: Offset(0, 3),
+                                    ),
+                                  ],
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 10),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "Current Shift",
+                                        style: TextStyle(
+                                            color: Colors.red,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 10),
+                                        child: Divider(
+                                          thickness: 3,
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 65,
+                                        width: 75,
+                                        child: Image.asset(
+                                          "images/sun.png",
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 25),
+                                        child: Divider(
+                                          thickness: 3,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Jan 15",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 22),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Material(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Container(
+                                height: 171,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                    color: Color(0xFFEBD9F0),
+                                    borderRadius: BorderRadius.circular(20),
+                                    boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.2),
+                                      spreadRadius: 2,
+                                      blurRadius: 5,
+                                      offset: Offset(0, 3),
+                                    ),
+                                  ],
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 10),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "Next Shift",
+                                        style: TextStyle(
+                                            color: Colors.green,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 10),
+                                        child: Divider(
+                                          thickness: 3,
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 65,
+                                        width: 75,
+                                        child: Image.asset(
+                                          "images/night.png",
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 25),
+                                        child: Divider(
+                                          thickness: 3,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Jan 23",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 22),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
             SizedBox(height: 20),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               child: Container(
-                height: 550,
+                height: 400,
                 decoration: BoxDecoration(
-                  // color: Color(0xFFBAAADF),
+                  color: Color(0xFFBAAADF).withOpacity(0.5),
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Column(
@@ -111,12 +268,13 @@ class _UserhomepageState extends State<Userhomepage> {
                           ) {
                             // Define custom borders for specific dates
                             BoxDecoration customDecoration;
-        
+
                             // Add borders for specific days in the current month
                             if (day.day == 2 &&
                                 day.month == _targetDateTime.month) {
                               customDecoration = BoxDecoration(
-                                border: Border.all(color: Colors.blue, width: 2),
+                                border:
+                                    Border.all(color: Colors.blue, width: 2),
                                 shape: BoxShape.circle,
                               );
                             } else if (day.day == 8 &&
@@ -138,7 +296,7 @@ class _UserhomepageState extends State<Userhomepage> {
                                     Border.all(color: Colors.grey, width: 0.5),
                               );
                             }
-        
+
                             return Container(
                               decoration: customDecoration,
                               child: Center(
@@ -173,8 +331,8 @@ class _UserhomepageState extends State<Userhomepage> {
                               height: 20,
                               width: 20,
                               decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: Colors.yellow, width: 2),
+                                  border: Border.all(
+                                      color: Colors.yellow, width: 2),
                                   shape: BoxShape.circle),
                             ),
                             SizedBox(
@@ -211,7 +369,8 @@ class _UserhomepageState extends State<Userhomepage> {
                               height: 20,
                               width: 20,
                               decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.red, width: 2),
+                                  border:
+                                      Border.all(color: Colors.red, width: 2),
                                   shape: BoxShape.circle),
                             ),
                             SizedBox(
@@ -226,92 +385,6 @@ class _UserhomepageState extends State<Userhomepage> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 50),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            height: 171,
-                            width: 130,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFEBD9F0),
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(vertical: 10),
-                              child: Column(
-                                children: [
-                                  Text("Current Shift", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold, fontSize: 16),),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 10),
-                                    child: Divider(
-                                      thickness: 3,
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 65,
-                                    width: 75,
-                                    child: Image.asset(
-                                      "images/sun.png",
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 25),
-                                    child: Divider(
-                                      thickness: 3,
-                                    ),
-                                  ),
-                                  Text("Jan 15", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 22),),
-                                ],
-                              ),
-                            ),
-                          ),
-
-                          Container(
-                            height: 171,
-                            width: 130,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFEBD9F0),
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(vertical: 10),
-                              child: Column(
-                                children: [
-                                  Text("Next Shift", style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 16),),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 10),
-                                    child: Divider(
-                                      thickness: 3,
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 65,
-                                    width: 75,
-                                    child: Image.asset(
-                                      "images/night.png",
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 25),
-                                    child: Divider(
-                                      thickness: 3,
-                                    ),
-                                  ),
-                                  Text("Jan 23", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 22),),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
                   ],
                 ),
               ),

@@ -35,6 +35,9 @@ dependencies:
   salomon_bottom_bar: ^3.3.2
   intl: ^0.19.0
   dropdown_button2: ^2.3.9
+  easy_stepper: ^0.8.5+1
+  timeline_tile: ^2.0.0
+  another_stepper: ^1.2.2
 
 
   # The following adds the Cupertino Icons font to your application.
