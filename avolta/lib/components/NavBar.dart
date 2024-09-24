@@ -1,7 +1,6 @@
-import 'package:avolta/pages/RequestDetails.dart';
+import 'package:avolta/pages/Settings.dart';
 import 'package:avolta/pages/SwapShift.dart';
 import 'package:avolta/pages/TrackingDetails.dart';
-import 'package:avolta/pages/UserProfile.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:avolta/pages/UserHomePage.dart';
@@ -20,7 +19,7 @@ class _NavbarState extends State<Navbar> {
     Userhomepage(), 
     Swapshift(),
     Trackingdetails(),
-    Requestdetails()
+    Settings()
   ];
 
   @override
