@@ -28,7 +28,7 @@ class _UserhomepageState extends State<Userhomepage> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 1, top: 85),
+                    padding: const EdgeInsets.only(right: 1, top: 25),
                     child: Container(
                       height: 300,
                       width: 200,
@@ -39,7 +39,7 @@ class _UserhomepageState extends State<Userhomepage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 60, left: 10),
+                  padding: const EdgeInsets.only(top: 40, left: 10),
                   child: Row(
                     children: [
                       ClipOval(
@@ -71,7 +71,7 @@ class _UserhomepageState extends State<Userhomepage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 190, left: 20),
+                  padding: const EdgeInsets.only(top: 140, left: 20),
                   child: Column(
                     children: [
                       Text(
@@ -92,7 +92,7 @@ class _UserhomepageState extends State<Userhomepage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 350),
+                  padding: const EdgeInsets.only(top: 250),
                   child: Column(
                     children: [
                       Padding(
@@ -232,9 +232,9 @@ class _UserhomepageState extends State<Userhomepage> {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               child: Container(
                 height: 400,
                 decoration: BoxDecoration(
@@ -246,7 +246,7 @@ class _UserhomepageState extends State<Userhomepage> {
                     Expanded(
                       child: Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                         child: CalendarCarousel(
                           onDayPressed: (DateTime date, List events) {
                             setState(() {
@@ -344,7 +344,7 @@ class _UserhomepageState extends State<Userhomepage> {
                                   color: Colors.yellow,
                                 )),
                             SizedBox(
-                              width: 20,
+                              width: 15,
                             ),
                             Container(
                               height: 20,
@@ -363,7 +363,7 @@ class _UserhomepageState extends State<Userhomepage> {
                                   color: Colors.blue,
                                 )),
                             SizedBox(
-                              width: 20,
+                              width: 15,
                             ),
                             Container(
                               height: 20,

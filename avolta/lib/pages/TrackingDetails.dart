@@ -1,4 +1,4 @@
-import 'package:easy_stepper/easy_stepper.dart';
+import 'package:another_stepper/another_stepper.dart';
 import 'package:flutter/material.dart';
 
 class Trackingdetails extends StatefulWidget {
@@ -9,11 +9,52 @@ class Trackingdetails extends StatefulWidget {
 }
 
 class _TrackingdetailsState extends State<Trackingdetails> {
+  int activeStep = 0;
+    Widget _buildIcon(int step) {
+    return Container(
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: activeStep == step ? Colors.green : Colors.transparent,
+          width: 5,
+        ),
+        shape: BoxShape.circle,
+      ),
+      child: ClipOval(
+        child: Image.asset(
+          "images/profile.png",
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+   List<StepperData> _getSteps() {
+    return [
+      StepperData(
+        iconWidget: _buildIcon(0),
+        title: StepperText("Send Request"),
+        subtitle: StepperText("Your request has been sent successfully."),
+      ),
+      StepperData(
+        iconWidget: _buildIcon(1),
+        title: StepperText("Request Approved"),
+        subtitle: StepperText("Your request has been approved successfully."),
+      ),
+      StepperData(
+        iconWidget: _buildIcon(2),
+        title: StepperText("Supervisor Confirmed"),
+        subtitle: StepperText("Supervisor confirmed your request."),
+      ),
+      StepperData(
+        iconWidget: _buildIcon(3),
+        title: StepperText("Completed"),
+        subtitle: StepperText("Your request has been completed."),
+      ),
+    ];
+  }
   @override
   Widget build(BuildContext context) {
-
-    int activeStep = 0;
-    
     return Scaffold(
       body: Stack(
         children: [
@@ -60,60 +101,26 @@ class _TrackingdetailsState extends State<Trackingdetails> {
           Padding(
             padding: EdgeInsets.only(top: 200, left: 25, right: 25),
             child: Container(
-              height: 500,
+              height: 440,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   color: Color(0xFFB9A1D6).withOpacity(0.8),
                   borderRadius: BorderRadius.circular(20)),
               child: Column(
                 children: [
-                  EasyStepper(
-                    activeStep: activeStep, 
-                    direction: Axis.vertical,
-                    stepShape: StepShape.circle,
-                    showLoadingAnimation: false,
-                    internalPadding: 30,
-                    lineStyle: LineStyle(
-                      lineLength: 20,
-                      lineSpace: 0,
-                      lineThickness: 2
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, top: 10),
+                    child: AnotherStepper(
+                      stepperList: _getSteps(),
+                      stepperDirection: Axis.vertical,
+                      iconHeight: 70,
+                      iconWidth: 70,
+                      verticalGap: 15,
+                      barThickness: 7,
+                      activeIndex: 1,
+                      activeBarColor: Colors.green,
                     ),
-                    steps: [
-                      EasyStep(
-                        customStep: ClipRRect(
-                          borderRadius: BorderRadius.circular(40),
-                              child: Image.asset(
-                                "images/user.png",
-                                fit: BoxFit.cover,
-                                height: 80,
-                                width: 80,
-                              ),
-                            
-                          ),
-                          customTitle: Text("data")
-                      ),
-                      EasyStep(
-                        customStep: ClipOval(
-                            child: Image.asset(
-                              "images/user.png",
-                              fit: BoxFit.cover,
-                              height: 80,
-                              width: 80,
-                            ),
-                          ),
-                      ),
-                      EasyStep(
-                        customStep: ClipOval(
-                            child: Image.asset(
-                              "images/user.png",
-                              fit: BoxFit.cover,
-                              height: 80,
-                              width: 80,
-                            ),
-                          ),
-                      )
-                    ]
-                  )
+                  ),
                 ],
               ),
             ),
@@ -122,4 +129,5 @@ class _TrackingdetailsState extends State<Trackingdetails> {
       ),
     );
   }
+
 }
