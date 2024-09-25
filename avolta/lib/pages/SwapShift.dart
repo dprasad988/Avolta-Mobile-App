@@ -81,21 +81,21 @@ class _SwapshiftState extends State<Swapshift> {
                   Text(
                     "Do you want",
                     style: TextStyle(
-                        fontSize: 22,
+                        fontSize: 20,
                         color: Colors.black,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
                     "to swap the",
                     style: TextStyle(
-                        fontSize: 22,
+                        fontSize: 20,
                         color: Colors.black,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
                     "shift?",
                     style: TextStyle(
-                        fontSize: 22,
+                        fontSize: 20,
                         color: Colors.black,
                         fontWeight: FontWeight.bold),
                   ),
@@ -106,7 +106,7 @@ class _SwapshiftState extends State<Swapshift> {
               height: 20,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 20, right: 20, top: 210),
+              padding: EdgeInsets.only(left: 20, right: 20, top: 215),
               child: Container(
                 height: 440,
                 width: MediaQuery.of(context).size.width,
@@ -133,7 +133,7 @@ class _SwapshiftState extends State<Swapshift> {
                               alignment: Alignment.centerLeft,
                               child: Padding(
                                 padding: EdgeInsets.only(left: 20),
-                                child: Text("Number of Shifts you have", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Colors.black),),
+                                child: Text("Number of Shifts you have", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Colors.black),),
                               )),
                           ),
                         ),
@@ -185,7 +185,7 @@ class _SwapshiftState extends State<Swapshift> {
                                 children: [
                                   Container(
                                     height: 40,
-                                    width: 130,
+                                    width: 150,
                                     decoration: BoxDecoration(
                                         color: Color(0xFFD9D9D9),
                                         borderRadius:
@@ -220,7 +220,7 @@ class _SwapshiftState extends State<Swapshift> {
                                   ),
                                   Container(
                                     height: 40,
-                                    width: 130,
+                                    width: 150,
                                     decoration: BoxDecoration(
                                         color: Color(0xFFD9D9D9),
                                         borderRadius:
@@ -252,7 +252,7 @@ class _SwapshiftState extends State<Swapshift> {
                       child: Column(
                         children: [
                           Container(
-                            height: 110,
+                            height: 112,
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
                                 color: Color(0xFFB9A1D6),
@@ -330,7 +330,7 @@ class _SwapshiftState extends State<Swapshift> {
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 elevation: 2,
-                                maxHeight: 100,
+                                maxHeight: 150,
                                 scrollbarTheme: ScrollbarThemeData(
                                   thickness: WidgetStateProperty.all(
                                       10), // Updated here
@@ -368,11 +368,11 @@ class _SwapshiftState extends State<Swapshift> {
                                 ),
                                 DropdownMenuItem(
                                   value: 'Option 4',
-                                  child: Text('Option 3'),
+                                  child: Text('Option 4'),
                                 ),
                                 DropdownMenuItem(
-                                  value: 'Option 3',
-                                  child: Text('Option 3'),
+                                  value: 'Option 5',
+                                  child: Text('Option 5'),
                                 ),
                               ],
                               onChanged: (value) {
@@ -427,7 +427,7 @@ class _SwapshiftState extends State<Swapshift> {
               height: 5,
             ),
             Padding(
-              padding: EdgeInsets.only(top: 655, right: 20),
+              padding: EdgeInsets.only(top: 660, right: 20),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: Container(

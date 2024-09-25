@@ -71,20 +71,20 @@ class _UserhomepageState extends State<Userhomepage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 140, left: 20),
+                  padding: const EdgeInsets.only(top: 130, left: 20),
                   child: Column(
                     children: [
                       Text(
                         "Your Shift",
                         style: TextStyle(
-                            fontSize: 36,
+                            fontSize: 32,
                             color: Colors.black,
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "Schedule",
                         style: TextStyle(
-                            fontSize: 36,
+                            fontSize: 32,
                             color: Colors.black,
                             fontWeight: FontWeight.bold),
                       ),
@@ -126,7 +126,7 @@ class _UserhomepageState extends State<Userhomepage> {
                                         style: TextStyle(
                                             color: Colors.red,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 16),
+                                            fontSize: 14),
                                       ),
                                       Padding(
                                         padding: EdgeInsets.symmetric(
@@ -155,7 +155,7 @@ class _UserhomepageState extends State<Userhomepage> {
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 22),
+                                            fontSize: 14),
                                       ),
                                     ],
                                   ),
@@ -188,7 +188,7 @@ class _UserhomepageState extends State<Userhomepage> {
                                         style: TextStyle(
                                             color: Colors.green,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 16),
+                                            fontSize: 14),
                                       ),
                                       Padding(
                                         padding: EdgeInsets.symmetric(
@@ -217,7 +217,7 @@ class _UserhomepageState extends State<Userhomepage> {
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 22),
+                                            fontSize: 14),
                                       ),
                                     ],
                                   ),
@@ -325,63 +325,67 @@ class _UserhomepageState extends State<Userhomepage> {
                       ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 20,
-                              width: 20,
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.yellow, width: 2),
-                                  shape: BoxShape.circle),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text("Day Shift",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.yellow,
-                                )),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Container(
-                              height: 20,
-                              width: 20,
-                              decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: Colors.blue, width: 2),
-                                  shape: BoxShape.circle),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text("Night Shift",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.blue,
-                                )),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Container(
-                              height: 20,
-                              width: 20,
-                              decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: Colors.red, width: 2),
-                                  shape: BoxShape.circle),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text("Swap Shift",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.red,
-                                )),
-                          ],
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.yellow, width: 2),
+                                    shape: BoxShape.circle),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text("Day Shift",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.yellow,
+                                  )),
+                              SizedBox(
+                                width: 15,
+                              ),      
+                              Container(
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                    border:
+                                        Border.all(color: Colors.blue, width: 2),
+                                    shape: BoxShape.circle),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text("Night Shift",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.blue,
+                                  )),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Container(
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                    border:
+                                        Border.all(color: Colors.red, width: 2),
+                                    shape: BoxShape.circle),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text("Swap Shift",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.red,
+                                  )),
+                            ],
+                          ),
                         ),
                       ),
                     ),
