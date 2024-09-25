@@ -1,6 +1,6 @@
+import 'package:avolta/pages/Notifications.dart';
 import 'package:avolta/pages/Settings.dart';
 import 'package:avolta/pages/SwapShift.dart';
-import 'package:avolta/pages/TrackingDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:avolta/pages/UserHomePage.dart';
@@ -18,7 +18,7 @@ class _NavbarState extends State<Navbar> {
   final List<Widget> _pages = [
     Userhomepage(), 
     Swapshift(),
-    Trackingdetails(),
+    Notifications(),
     Settings()
   ];
 

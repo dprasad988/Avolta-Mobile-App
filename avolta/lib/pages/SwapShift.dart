@@ -144,7 +144,10 @@ class _SwapshiftState extends State<Swapshift> {
                             height: 50,
                             decoration: BoxDecoration(
                                 color: Color(0xFFB9A1D6),
-                                borderRadius: BorderRadius.circular(10)
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: Color(0xFFE42626)
+                                )
                             ),
                             child: Center(child: Text("03", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700, color: Color(0xFFE42626)),)),
                           ),
