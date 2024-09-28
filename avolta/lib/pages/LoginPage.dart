@@ -1,3 +1,4 @@
+import 'package:avolta/services/ApiService.dart';
 import 'package:avolta/widgets/support_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,10 @@ class Loginpage extends StatefulWidget {
 
 class _LoginpageState extends State<Loginpage> {
   bool _isObscured = true;
+
+  final TextEditingController _epfController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final ApiService _apiService = ApiService();
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +30,16 @@ class _LoginpageState extends State<Loginpage> {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30)
-                    ),
-                    gradient: LinearGradient(colors: [
-                  Color.fromRGBO(60, 41, 165, 0.6),
-                  Color.fromRGBO(11, 8, 34, 0.4),
-                ], begin: Alignment.center, end: Alignment.bottomCenter,)),
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30)),
+                    gradient: LinearGradient(
+                      colors: [
+                        Color.fromRGBO(60, 41, 165, 0.6),
+                        Color.fromRGBO(11, 8, 34, 0.4),
+                      ],
+                      begin: Alignment.center,
+                      end: Alignment.bottomCenter,
+                    )),
               ),
             ),
             Positioned(
@@ -77,10 +85,11 @@ class _LoginpageState extends State<Loginpage> {
                       SizedBox(
                         height: 10,
                       ),
-                      Text("User Name", style: AppWidget.semiLabelStyle()),
+                      Text("EPF Number", style: AppWidget.semiLabelStyle()),
                       TextField(
+                        controller: _epfController,
                         decoration: InputDecoration(
-                            hintText: "Enter Your User Name",
+                            hintText: "Enter Your EPF Number",
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(width: 2),
@@ -93,46 +102,60 @@ class _LoginpageState extends State<Loginpage> {
                       ),
                       Text("Password", style: AppWidget.semiLabelStyle()),
                       TextField(
-                          obscureText: _isObscured,
-                          decoration: InputDecoration(
-                            hintText: "Enter Your Password",
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(width: 2),
+                        obscureText: _isObscured,
+                        controller: _passwordController,
+                        decoration: InputDecoration(
+                          hintText: "Enter Your Password",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(width: 2),
+                          ),
+                          contentPadding:
+                              EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _isObscured
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 0, horizontal: 10),
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                _isObscured
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  _isObscured = !_isObscured;
-                                });
-                              },
-                            ),
+                            onPressed: () {
+                              setState(() {
+                                _isObscured = !_isObscured;
+                              });
+                            },
                           ),
                         ),
-                      Container(
-                        alignment: Alignment.centerRight,
-                        child: Text("Forgot Password ?", style: AppWidget.semiLabelStyle())
                       ),
-                      SizedBox(height: 10,),
                       Container(
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF8F53F0),
-                          borderRadius: BorderRadius.circular(5)
-                        ),
-                        child: Center(
-                          child: Text("Sign In", style: TextStyle(
-                            color: Colors.white, 
-                            fontWeight: FontWeight.bold),
-                          )
-                        )
+                          alignment: Alignment.centerRight,
+                          child: Text("Forgot Password ?",
+                              style: AppWidget.semiLabelStyle())),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () async {
+                          String epfNo = _epfController.text.trim();
+                          String password = _passwordController.text.trim();
+
+                            if (epfNo.isNotEmpty && password.isNotEmpty) {
+                              await _apiService.loginEmployee(epfNo, password);
+                            } else {
+                              logger.w('EPF No or password cannot be empty');
+                            }
+                        },
+                        child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                                color: Color(0xFF8F53F0),
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Center(
+                                child: Text(
+                              "Sign In",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ))),
                       ),
                       Center(
                         child: Container(
@@ -157,30 +180,37 @@ class _LoginpageState extends State<Loginpage> {
                           ),
                         ),
                       ),
-                        Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 35,
-                                child: Image.asset(
-                                  "images/googleLogin.png",
-                                  fit: BoxFit.cover,
-                                ),
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 35,
+                              child: Image.asset(
+                                "images/googleLogin.png",
+                                fit: BoxFit.cover,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                        SizedBox(height: 10,),
-                        Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("Dont have an account ?"),
-                              Text(" Sign in" , style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
-                            ],
-                          ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Dont have an account ?"),
+                            Text(
+                              " Sign in",
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
                         ),
+                      ),
                     ],
                   )),
             ),
