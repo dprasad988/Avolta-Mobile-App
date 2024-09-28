@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:avolta/components/FloatingSnackbar.dart';
 import 'package:avolta/components/NavBar.dart';
+import 'package:avolta/main.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -36,6 +37,8 @@ class ApiService {
         await storage.write(key: 'authToken', value: token);
 
         logger.i('Login successful. Token saved securely.');
+        await showNotification("Login Successful", "Welcome back!");
+        
         if (context.mounted) {
           FloatingSnackBar.show(context, "Login successful!",
               backgroundColor: Colors.green);

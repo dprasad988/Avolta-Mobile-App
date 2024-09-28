@@ -1,7 +1,20 @@
 import 'package:avolta/pages/GetStarted.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-void main() {
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+
+Future<void> main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+
+  const AndroidInitializationSettings initializationSettingsAndroid =
+      AndroidInitializationSettings('avolta'); // Your app icon name
+
+  const InitializationSettings initializationSettings =
+      InitializationSettings(android: initializationSettingsAndroid);
+
+  await flutterLocalNotificationsPlugin.initialize(initializationSettings);
   runApp(const MyApp());
 }
 
@@ -21,4 +34,27 @@ class MyApp extends StatelessWidget {
       home: const Getstarted(),
     );
   }
+}
+
+Future<void> showNotification(String title, String body) async {
+  const AndroidNotificationDetails androidPlatformChannelSpecifics =
+      AndroidNotificationDetails(
+    'login_notifications', // Replace with your channel ID
+    'Login_notifications', // Replace with your channel name
+    channelDescription: 'Your channel description',
+    importance: Importance.high,
+    priority: Priority.high,
+    showWhen: true,
+  );
+
+  const NotificationDetails platformChannelSpecifics =
+      NotificationDetails(android: androidPlatformChannelSpecifics);
+
+  await flutterLocalNotificationsPlugin.show(
+    0, // Notification ID
+    title,
+    body,
+    platformChannelSpecifics,
+    payload: 'item x', // Optional payload
+  );
 }
