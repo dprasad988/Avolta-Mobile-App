@@ -1,4 +1,7 @@
 import 'dart:convert';
+import 'package:avolta/components/FloatingSnackbar.dart';
+import 'package:avolta/components/NavBar.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:logger/logger.dart';
@@ -9,7 +12,8 @@ class ApiService {
   final String baseUrl = 'https://avolta-app-backend.vercel.app';
   final FlutterSecureStorage storage = FlutterSecureStorage();
 
-  Future<void> loginEmployee(String epfNo, String password) async {
+  Future<void> loginEmployee(
+      BuildContext context, String epfNo, String password) async {
     final url = Uri.parse('$baseUrl/auth/login');
 
     try {
@@ -32,11 +36,25 @@ class ApiService {
         await storage.write(key: 'authToken', value: token);
 
         logger.i('Login successful. Token saved securely.');
+        if (context.mounted) {
+          FloatingSnackBar.show(context, "Login successful!",
+              backgroundColor: Colors.green);
+        }
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Navbar()));
       } else {
         logger.w('Failed to login: ${response.body}');
+        if (context.mounted) {
+          FloatingSnackBar.show(context, "Login failed: ${response.body}",
+              backgroundColor: Colors.red);
+        }
       }
     } catch (error) {
       logger.e('Error occurred: $error');
+      if (context.mounted) {
+        FloatingSnackBar.show(context, "Error occurred: $error",
+            backgroundColor: Colors.red);
+      }
     }
   }
 }

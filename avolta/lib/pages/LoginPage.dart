@@ -1,3 +1,4 @@
+import 'package:avolta/components/FloatingSnackbar.dart';
 import 'package:avolta/services/ApiService.dart';
 import 'package:avolta/widgets/support_widgets.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class _LoginpageState extends State<Loginpage> {
   final TextEditingController _epfController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final ApiService _apiService = ApiService();
+  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -138,11 +140,20 @@ class _LoginpageState extends State<Loginpage> {
                           String epfNo = _epfController.text.trim();
                           String password = _passwordController.text.trim();
 
-                            if (epfNo.isNotEmpty && password.isNotEmpty) {
-                              await _apiService.loginEmployee(epfNo, password);
-                            } else {
-                              logger.w('EPF No or password cannot be empty');
-                            }
+                          if (epfNo.isNotEmpty && password.isNotEmpty) {
+                            setState(() {
+                              _isLoading = true;
+                            });
+                            await _apiService.loginEmployee(
+                                context, epfNo, password);
+                            setState(() {
+                              _isLoading = false;
+                            });
+                          } else {
+                            logger.w('EPF No or password cannot be empty');
+                            FloatingSnackBar.show(
+                                context, "EPF No or password cannot be empty");
+                          }
                         },
                         child: Container(
                             height: 40,
@@ -150,7 +161,10 @@ class _LoginpageState extends State<Loginpage> {
                                 color: Color(0xFF8F53F0),
                                 borderRadius: BorderRadius.circular(5)),
                             child: Center(
-                                child: Text(
+                                child: _isLoading ? CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                ) :
+                                Text(
                               "Sign In",
                               style: TextStyle(
                                   color: Colors.white,

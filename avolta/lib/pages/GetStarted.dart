@@ -1,3 +1,4 @@
+import 'package:avolta/pages/LoginPage.dart';
 import 'package:flutter/material.dart';
 
 class Getstarted extends StatefulWidget {
@@ -50,47 +51,57 @@ class _GetstartedState extends State<Getstarted> {
                   fit: BoxFit.cover,
                 ),
               ),
-              Positioned(
-                bottom: 50,
-                child: Container(
-                    height: 160,
-                    width: 300,
-                    decoration: BoxDecoration(
-                        color: Color(0xB205122F),
-                        borderRadius: BorderRadius.circular(25)),
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-                    child: Column(
-                      children: [
-                        Text(
-                          "Get Started",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900,
-                              color: Color(0xFFFFFFFF)),
-                        ),
-                        Container(
-                          width: 200,
-                          child: Divider(
-                            thickness: 0.5,
-                          ),
-                        ),
-                        Text(
-                          "Manage your shifts effortlessly—swap day and night shifts, track your schedule, and stay in sync with your team.",
-                          style: TextStyle(
-                              fontSize: 11,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xFFFFFFFF)),
-                        ),
-                      ],
-                    )),
+              Padding(
+                padding: EdgeInsets.only(bottom: 50),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                        height: 180,
+                        width: 300,
+                        decoration: BoxDecoration(
+                            color: Color(0xB205122F),
+                            borderRadius: BorderRadius.circular(25)),
+                        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+                        child: Column(
+                          children: [
+                            Text(
+                              "Get Started",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w900,
+                                  color: Color(0xFFFFFFFF)),
+                            ),
+                            Container(
+                              width: 200,
+                              child: Divider(
+                                thickness: 0.5,
+                              ),
+                            ),
+                            Text(
+                              "Manage your shifts effortlessly—swap day and night shifts, track your schedule, and stay in sync with your team.",
+                              style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xFFFFFFFF)),
+                            ),
+                          ],
+                        )),
+                ),
               ),
+              
               Positioned(
                 bottom: 10,
-                child: Image.asset(
-                  "images/image.png",
-                  width: 85,
-                  height: 80,
-                  fit: BoxFit.cover,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Loginpage()));
+                  },
+                  child: Image.asset(
+                    "images/image.png",
+                    width: 85,
+                    height: 80,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ],
