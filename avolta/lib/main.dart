@@ -1,6 +1,8 @@
+import 'package:avolta/components/UserRoleProvider.dart';
 import 'package:avolta/pages/GetStarted.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:provider/provider.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -15,7 +17,12 @@ Future<void> main() async {
       InitializationSettings(android: initializationSettingsAndroid);
 
   await flutterLocalNotificationsPlugin.initialize(initializationSettings);
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => UserRoleProvider(),  // Provide the user role state
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
